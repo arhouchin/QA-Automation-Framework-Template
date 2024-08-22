@@ -1,5 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.UUID;
@@ -16,21 +17,27 @@ public class ProfileTests extends BaseTest {
 
         //Navigate To Profile Page
         clickOnAvatar();
+        Thread.sleep(2000);
 
         //Random New Name
         String randomNewName = generateRandomName();
+        Thread.sleep(2000);
 
         //Provide Current Password
-        providePassword("Arho!030");
+        provideCurrentPassword("Arho!030");
+        Thread.sleep(2000);
 
         //Provide new random name
         provideNewName(randomNewName);
+        Thread.sleep(2000);
 
         //Click On The Save Button
         clickSave();
         Thread.sleep(2000);
 
         //Assertion
+        WebElement actualProfileName = driver.findElement(By.cssSelector("a.view-profile>span"));
+        Assert.assertEquals(actualProfileName.getText(), randomNewName);
 
 
     }
@@ -49,6 +56,7 @@ public class ProfileTests extends BaseTest {
     public void provideCurrentPassword(String password){
         WebElement currentPasswordField = driver.findElement(By.cssSelector("[name='current_password']"));
         currentPasswordField.clear();
+        currentPasswordField.sendKeys(password);
     }
 
     public void provideNewName(String newName){
@@ -59,6 +67,7 @@ public class ProfileTests extends BaseTest {
 
     public void clickSave(){
         WebElement saveButton = driver.findElement(By.cssSelector("button.btn-submit"));
+        saveButton.click();
     }
 
 }
