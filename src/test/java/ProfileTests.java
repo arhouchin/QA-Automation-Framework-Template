@@ -12,7 +12,6 @@ public class ProfileTests extends BaseTest {
         provideEmail("aaron.houchin@testpro.io");
         providePassword("Arho!030");
         clickSubmit();
-        Thread.sleep(2000);
 
         //Navigate To Profile Page
         clickOnAvatar();
@@ -28,7 +27,6 @@ public class ProfileTests extends BaseTest {
 
         //Click On The Save Button
         clickSave();
-        Thread.sleep(2000);
 
         //Assertion
 
