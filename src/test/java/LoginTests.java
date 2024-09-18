@@ -18,13 +18,10 @@ public class LoginTests extends BaseTest {
     @Test
     public void loginValidEmailPassword() {
         try {
-            Thread.sleep(2000);
             //Email Field
             provideEmail("aaron.houchin@testpro.io");
-            Thread.sleep(2000);
             //Password Field
             providePassword("Arho!030");
-            Thread.sleep(2000);
             //Submit Button
             clickSubmit();
             //Expected Results
@@ -44,7 +41,6 @@ public class LoginTests extends BaseTest {
         providePassword("Arho!030");
         //Submit Button
         clickSubmit();
-        Thread.sleep(2000);
         //Expected Result
         Assert.assertEquals(driver.getCurrentUrl(), url);
     }
@@ -57,7 +53,6 @@ public class LoginTests extends BaseTest {
         providePassword("invalidpassword");
         //Submit Button
         clickSubmit();
-        Thread.sleep(2000);
         //Expected Result
         Assert.assertEquals(driver.getCurrentUrl(), url);
     }
